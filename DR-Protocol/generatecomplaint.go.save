@@ -1,0 +1,44 @@
+package main
+
+import (
+        "fmt"
+        "errors"
+        "github.com/hyperledger/fabric-chaincode-go/shim"
+        "github.com/hyperledger/fabric-protos-go/peer"
+)
+
+const (
+
+	CHALLENGE_TYPE_WARNING = "warning"
+	CHALLENGE_TYPE_PAYMENT = "payment"
+	CHALLENGE_TYPE_MESSAGE = "message"
+)
+
+
+
+
+type Complaint struct{
+	ID string `json:"ID"` 
+	PaymentID string `json:"payeeID"`
+	BeneficiaryID string `json:"beneficiaryID"`
+        WarningID string `json:"warningID"`
+	PayerID string `json:"warningID"`
+	ChallengeType string `json:"challengetype"`
+	Evidence string `json:"evidence"`	
+}
+
+func(cc *TestChaincode)GenerateComplaint(stub  shim.ChaincodeStubInterface, args []string)peer.Response{
+
+/**
+
+	1. Check the argument length. 2.Map the arguments into proper variables.
+	3. Validate the arguments. 4. Check the paymentID, warningID, beneficiaryID, payerID if they are valid
+	5. Only payer can raise the dispute.
+	6. Challenge type should be valid.
+	7. If challenge type is warning then evidence type should not be empty.
+	8. Save the complaint.  
+
+*/
+
+	return shim.Success(nil)
+}
